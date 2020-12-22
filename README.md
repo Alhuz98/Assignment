@@ -8,4 +8,4 @@ Assignment GIS Application Developer
 5. Press parse button and see the result
 6. Press again button for the another address
 
-Any inquiries dont hesistate to contact me.
+Any inquiries dont hesitate to contact me.
