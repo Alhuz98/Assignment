@@ -86,12 +86,12 @@ public class Main {
         } else {
 
             String address = addressInput.getText();
-            ScannerParser scan = new ScannerParser(address);
+
+            ScannerAddress scan = new ScannerAddress(address);
             Map data =  scan.printAll();
             for(Object key : data.keySet()){
                 resultToken.append(key + " : "+data.get(key)+"\n");
             }
-            scan.removeData();
             btnParse.setVisible(false);
             btnAgain.setVisible(true);
         }
