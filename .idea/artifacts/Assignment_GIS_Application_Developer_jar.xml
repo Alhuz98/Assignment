@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignment GIS Application Developer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignment_GIS_Application_Developer_jar</output-path>
+    <root id="archive" name="Assignment GIS Application Developer.jar">
+      <element id="module-output" name="Assignment GIS Application Developer" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

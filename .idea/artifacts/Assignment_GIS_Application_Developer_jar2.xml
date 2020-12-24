@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Assignment GIS Application Developer:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/Assignment_GIS_Application_Developer_jar2</output-path>
+    <root id="archive" name="Assignment GIS Application Developer.jar">
+      <element id="module-output" name="Assignment GIS Application Developer" />
+    </root>
+  </artifact>
+</component>
