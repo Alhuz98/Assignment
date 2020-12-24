@@ -131,7 +131,8 @@ public class ScannerAddress {
             jalanList.addAll(Arrays.asList(tempJalan));
             jalanList.replaceAll(String :: toUpperCase);
             int tag = 0;
-
+            boolean checCity = false;
+            boolean checkState = false;
             for (int i = 0; i < inputAddress.size(); i++) {
                 if (jalanList.contains(inputAddress.get(i)) && tag == 0) {
                     tag = 2;
@@ -139,18 +140,48 @@ public class ScannerAddress {
                     indexRemoval.add(i);
                     checkRemove = true;
                 } else if (tag == 2) {
-                    if (containsCity(inputAddress.get(i)) && addressDetails.getCityName().equals("") && addressDetails.getStreetName().contains(inputAddress.get(i))) {
-                        tag = 0;
-                    } else if (containsState(inputAddress.get(i)) && addressDetails.getStateName().equals("") && addressDetails.getStreetName().contains(inputAddress.get(i))) {
-                         tag = 0;
+
+                    if (containsCity(inputAddress.get(i))){
+                        if(checCity == true && !addressDetails.getCityName().equals("") ){
+                            tag =0;
+                        }else{
+                            checCity = true;
+                            addressDetails.setStreetName(inputAddress.get(i));
+                            addressDetails.setCityName(inputAddress.get(i));
+                            indexRemoval.add(i);
+                            tag =2;
+                        }
+
+                    } else if (containsState(inputAddress.get(i))) {
+                        if(checkState == true && !addressDetails.getStateName().equals("") ){
+                            System.out.println(inputAddress.get(i));
+                            tag =0;
+                        }else{
+                            checkState = true;
+                            addressDetails.setStreetName(inputAddress.get(i));
+                            addressDetails.setStateName(inputAddress.get(i));
+                            indexRemoval.add(i);
+                            System.out.println(inputAddress.get(i));
+                            System.out.println(checkState);
+                            System.out.println(i);
+                            tag =2;
+                        }
                     } else if (containsPostCode(inputAddress.get(i))) {
                         tag = 0;
                     } else {
-                        addressDetails.setStreetName(inputAddress.get(i));
-                        indexRemoval.add(i);
-                        checkRemove = true;
-                        tag = 2;
+                        if(addressDetails.getStreetName().contains(inputAddress.get(i))){
+                            tag =0;
+                        }
+                        else{
+                            addressDetails.setStreetName(inputAddress.get(i));
+                            indexRemoval.add(i);
+                            checkRemove = true;
+                            tag = 2;
+                        }
                     }
+                }
+                else{
+                    continue;
                 }
             }
             if(checkRemove){
